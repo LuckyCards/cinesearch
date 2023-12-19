@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  height: 320px;
+
+  text-decoration: none;
+}
+
+.name {
+  font-size: .43rem;
+  text-align: center;
+  margin-top: 3px;
+}
+

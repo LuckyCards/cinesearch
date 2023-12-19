@@ -1,0 +1,11 @@
+.film_cover {
+  display: flex;
+  width: 180px;
+  height: 270px;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+  min-height: 270px;
+}
