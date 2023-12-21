@@ -27,9 +27,8 @@ export default function MovieDetails(props) {
   return (
     <div className={style.container}>
       <TrailerShow id={id} />
-      <MovieGalery id={id} type={"posters"}/>
+      <MovieGalery id={id} type={"backdrops"}/>
       <FilmCover url={data.poster_path} alt={data.original_title} />
-
     </div>
   );
 }
