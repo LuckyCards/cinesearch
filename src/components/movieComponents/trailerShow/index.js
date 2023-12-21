@@ -8,11 +8,13 @@ export default function TrailerShow({ id }) {
 
   useEffect(() => {
     const fetchKeys = async () => {
-      const result = await GetVideoKey(id);
+      let result = await GetVideoKey(id);
+      if(!result.length){
+        result = await GetVideoKey(id, "en-US");
+      }
       setKeys(result);
     };
     fetchKeys();
-    
   }, [id]);
 
   const _onReady = (evento) => {
@@ -21,12 +23,17 @@ export default function TrailerShow({ id }) {
 
   return (
     <div className={style.container}>
-      <YouTube
-        className={style.video}
-        videoId={keys[0]}
-        onReady={_onReady}
-      />
-      <img src={`https://img.youtube.com/vi/${keys[0]}/maxresdefault.jpg`} />
+      {keys[0] ? 
+        <>
+          <YouTube
+            className={style.video}
+            videoId={keys[0]}
+            onReady={_onReady}
+            onError={() => keys.length && setKeys([])}
+          /> 
+          <img src={`https://img.youtube.com/vi/${keys[0]}/maxresdefault.jpg`} />
+        </>
+      : <p>algo</p>}
     </div>
   );
 }
