@@ -20,16 +20,16 @@ export default function MovieGalery({ id, type = "backdrops" }) {
   }, [id]);
 
   useEffect(() => {
-    console.log(data?.[type]);
-  }, [data, type]);
+  }, [data]);
 
   const imgUrl = data?.[type]?.sort((a, b) => b.vote_average - a.vote_average);
-  console.log(imgUrl);
 
-  return (
-    <img
-      className={style.image}
-      src={`${imageDefaultUrl}/${imgUrl?.[0]?.file_path}`}
-    />
-  );
+  if (imgUrl?.[0]?.file_path) {
+    return (
+      <img
+        className={style.image}
+        src={`${imageDefaultUrl}/${imgUrl?.[0]?.file_path}`}
+      />
+    );
+  }  
 }

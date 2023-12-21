@@ -12,6 +12,7 @@ export default function TrailerShow({ id }) {
       setKeys(result);
     };
     fetchKeys();
+    
   }, [id]);
 
   const _onReady = (evento) => {
@@ -25,6 +26,7 @@ export default function TrailerShow({ id }) {
         videoId={keys[0]}
         onReady={_onReady}
       />
+      <img src={`https://img.youtube.com/vi/${keys[0]}/maxresdefault.jpg`} />
     </div>
   );
 }

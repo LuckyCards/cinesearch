@@ -9,6 +9,6 @@ export default async function GetVideoKey(id) {
   const data = await res.json();
 
   const keys = data.results.map((element) => element.key);
-
+  console.log(keys);
   return keys;
 }

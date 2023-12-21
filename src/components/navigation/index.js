@@ -7,20 +7,14 @@ export default function Navigation() {
     {
       name: "Atores",
       path: "/atores",
-      pos: "0",
-      description: "Teste ATORES Teste",
     },
     {
       name: "Filmes",
       path: "/filmes",
-      pos: "250",
-      description: "Teste FILMES Teste",
     },
     {
       name: "Sobre",
       path: "/sobre",
-      pos: "500",
-      description: "Teste SOBRE Teste",
     },
   ];
 
@@ -29,7 +23,7 @@ export default function Navigation() {
       
       <nav className={style.menu_aside}>
         <Link to={"/"}>
-          <h1>Cine Search</h1>
+          <h1>CineSearch</h1>
         </Link>
 
         <ul className={style.list_button}>
