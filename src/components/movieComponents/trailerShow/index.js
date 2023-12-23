@@ -31,9 +31,9 @@ export default function TrailerShow({ id }) {
             onReady={_onReady}
             onError={() => keys.length && setKeys([])}
           /> 
-          <img src={`https://img.youtube.com/vi/${keys[0]}/maxresdefault.jpg`} />
+          {/* <img src={`https://img.youtube.com/vi/${keys[0]}/maxresdefault.jpg`} /> */}
         </>
-      : <p>algo</p>}
+      : <p>Sem vídeos disponivel</p>}
     </div>
   );
 }

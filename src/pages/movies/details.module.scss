@@ -1,8 +1,57 @@
 @import "../../css/variables";
 
 .container {
+  display: flex;
+  position: relative;
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
   background-color: $background-page;
+
+  align-items: center;
+
+  .trailerShow {
+    display: flex;
+    justify-content: center;
+    width: 100%
+  }
+
+  .main {
+    display: flex;
+    z-index: 10;
+    background-color: rgb(56, 84, 84);
+    padding: 20px;
+    width: 1200px;
+    max-width: 90%;
+
+    .filmCover {
+      display: flex;
+      width: 400px;
+      height: fit-content;
+      margin-right: 20px;
+
+      .cover {
+        border-radius: 20px;
+        width: 100%;
+      }
+    }
+
+    .boxTitles {
+      .title {
+        display: flex;
+        flex-direction: column;
+        h1 {
+          font-size: 1rem;
+          font-weight: 700;
+        }
+        span {
+          font-size: 0.7rem;
+          filter: opacity(80%);
+        }
+      }
+      h3 {
+        font-size: .8rem;
+      }
+    }
+  }
 }
