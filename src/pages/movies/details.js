@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
 import style from "./details.module.scss";
-import TrailerShow from "../../components/movieComponents/trailerShow";
+import VideoShow from "../../components/movieComponents/videoShow";
 import { options } from "../..";
 import FilmCover from "../../components/movieComponents/filmCover";
 import { useEffect, useState } from "react";
 import DateManager from "../../components/Utils/DateManager";
-import GetVideoKey from "../../components/movieComponents/trailerShow/getVideoKey";
 
 export default function MovieDetails(props) {
   const { id } = useParams();
   const [data, setData] = useState(null);
+  const [urlBackground, setUrlBackground] = useState("");
 
   async function getMovieInfo() {
     const res = await fetch(
@@ -21,17 +21,28 @@ export default function MovieDetails(props) {
 
   useEffect(() => {
     getMovieInfo();
-  }, []);
+  }, [id]);
 
   if (!data) return null;
 
   const dateInfo = DateManager(data.release_date);
-  console.log(data);
+
+  console.log(urlBackground);
   return (
-    <div className={style.container}>
-      <div className={style.trailerShow}>
-        <TrailerShow id={id} />
-        {/* <img src={`https://img.youtube.com/vi/${}/maxresdefault.jpg`} /> */}
+    <div
+      className={style.container}
+      style={{
+        background: `url(${urlBackground})`,
+      }}>
+      <div className={style.trailer}>
+        <VideoShow id={id} />
+      </div>
+      <div className={style.thumbnail}>
+        <VideoShow
+          id={id}
+          isThumbnail={true}
+          setThumbnailUrl={setUrlBackground}
+        />
       </div>
       <div className={style.main}>
         <div className={style.filmCover}>
