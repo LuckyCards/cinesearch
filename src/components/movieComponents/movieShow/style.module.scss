@@ -3,13 +3,16 @@
   flex-direction: column;
   width: 180px;
   height: 320px;
-
+  transition: all .2s ease-in-out;
   text-decoration: none;
-}
 
-.name {
-  font-size: .43rem;
-  text-align: center;
-  margin-top: 3px;
-}
+  .name {
+    font-size: 0.43rem;
+    text-align: center;
+    margin-top: 3px;
+  }
 
+&:hover {
+  transform: scale(1.1);
+}
+}

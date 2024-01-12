@@ -6,11 +6,11 @@
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-
   background-repeat: no-repeat !important;
-  background-size: contain !important;
-
+  background-size: cover !important;
+  background-position: center !important;
   align-items: center;
+  transition: all 0.5s ease; /* Adicionado para suavizar as transições de estilo */
 
   .trailer {
     display: flex;
@@ -18,7 +18,11 @@
     width: 100%;
     margin-top: 40px;
     z-index: 1;
-    background: linear-gradient(to bottom, rgba(0,0,0,0), #0e0119) !important;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      $background-page
+    ) !important;
   }
 
   .thumbnail {
@@ -27,7 +31,7 @@
     width: 100%;
     height: 0px;
 
-    &::after{
+    &::after {
       content: "";
       z-index: 1;
       width: 100%;
@@ -39,11 +43,14 @@
   .main {
     display: flex;
     z-index: 10;
-    background-color: rgb(56, 84, 84);
+    background-color: $background-element;
+    margin-top: -23px;
     padding: 20px;
     width: 1200px;
     max-width: 90%;
-    
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.3); 
+
     .filmCover {
       display: flex;
       width: 400px;
@@ -53,6 +60,10 @@
       .cover {
         border-radius: 20px;
         width: 100%;
+        transition: transform 0.2s;
+        &:hover {
+          transform: scale(1.01); 
+        }
       }
     }
 
