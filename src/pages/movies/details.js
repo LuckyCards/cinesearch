@@ -17,6 +17,7 @@ export default function MovieDetails(props) {
       options
     );
     setData(await res.json());
+    console.log(data);
   }
 
   useEffect(() => {
@@ -52,13 +53,31 @@ export default function MovieDetails(props) {
             alt={data.original_title}
           />
         </div>
+
         <div className={style.boxTitles}>
           <div className={style.title}>
-            <h1>{data.title}</h1>
-            <span>&#40;{dateInfo.year}&#41;</span>{" "}
+            <h1>
+              {data.title}{" "}
+              <span className={style.dateInfo}>&#40;{dateInfo.year}&#41;</span>
+            </h1>
             {/* "&#40;" e "&#41;" são codigos dos parenteses*/}
           </div>
-          <h3>{data.tagline}</h3>
+
+          <div className={style.boxSubTitles}>
+            <span>{data.runtime} min</span>
+            {data.genres.map((e, i) => (
+              <span key={i} className={style.genre}>
+                {e.name}
+              </span>
+            ))}
+          </div>
+
+          <h3 className={style.tagline}>{data.tagline}</h3>
+
+          <p className={style.overview}>
+            <span className={style.topic}>Sinopse:</span>
+            {data.overview}
+          </p>
         </div>
       </div>
     </div>
